@@ -21,7 +21,7 @@
                   android:title="Share"/>
             <item android:id="@+id/nav_send"
                   android:icon="@drawable/ic_menu_send"
-                  android:title="Send"/>
+                  android:title="Send Feedback"/>
         </menu>
     </item>
 </menu>
