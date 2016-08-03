@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.apptentive.android.sdk.Apptentive;
 import com.mparticle.MParticle;
 
 public class MainActivity extends AppCompatActivity
@@ -93,6 +94,9 @@ public class MainActivity extends AppCompatActivity
 			mParticle.logEvent("nav_share", MParticle.EventType.Navigation);
 		} else if (id == R.id.nav_send) {
 			mParticle.logEvent("nav_send", MParticle.EventType.Navigation);
+			if (MParticle.getInstance().isKitActive(MParticle.ServiceProviders.APPTENTIVE)) {
+				Apptentive.showMessageCenter(this);
+			}
 		}
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
