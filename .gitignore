@@ -2,7 +2,7 @@
 .DS_Store
 
 # Gradle
-.gradle/
+.gradle
 
 # Android
 local.properties
@@ -12,11 +12,11 @@ bin/
 build/
 captures/
 
-# Android Studio
+# IntelliJ
+*.iws
 *.iml
-.idea/tasks.xml
-.idea/workspace.xml
-.idea/gradle.xml
-.idea/encodings.xml
-.idea/modules.xml
-.idea/libraries/
+.idea/
+
+# Eclipse
+.settings
+.metadata
