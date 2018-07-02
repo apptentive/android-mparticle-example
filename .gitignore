@@ -1,22 +1,8 @@
-# Mac OS
-.DS_Store
-
-# Gradle
-.gradle
-
-# Android
-local.properties
-gen/
-out/
-bin/
-build/
-captures/
-
-# IntelliJ
-*.iws
 *.iml
-.idea/
-
-# Eclipse
-.settings
-.metadata
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
