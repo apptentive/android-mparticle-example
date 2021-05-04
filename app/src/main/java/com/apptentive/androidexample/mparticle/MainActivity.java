@@ -1,9 +1,7 @@
 package com.apptentive.androidexample.mparticle;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
-import android.support.design.widget.NavigationView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.apptentive.android.sdk.Apptentive;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.mparticle.MPEvent;
 import com.mparticle.MParticle;
 
