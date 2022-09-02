@@ -9,9 +9,8 @@ public class ExampleApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         MParticleOptions options = MParticleOptions.builder(this)
-                .credentials("YOUR_MPARTICLE_API_KEY","YOUR_MPARTICLE_API_SECRET")
+                .credentials(BuildConfig.MPARTICLE_KEY,BuildConfig.MPARTICLE_SECRET)
                 .logLevel(MParticle.LogLevel.VERBOSE)
                 .build();
         MParticle.start(options);

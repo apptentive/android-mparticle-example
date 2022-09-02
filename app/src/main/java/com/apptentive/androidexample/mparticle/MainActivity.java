@@ -107,6 +107,5 @@ public class MainActivity extends AppCompatActivity
     private void logEvent(String name, MParticle.EventType eventType) {
         MPEvent event = new MPEvent.Builder(name, eventType).build();
         MParticle.getInstance().logEvent(event);
-
     }
 }
