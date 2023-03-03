@@ -1,7 +1,10 @@
 package com.apptentive.androidexample.mparticle;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,15 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.apptentive.android.sdk.Apptentive;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.mparticle.MPEvent;
 import com.mparticle.MParticle;
+import com.mparticle.kits.ApptentiveKitUtils;
+
+import apptentive.com.android.feedback.Apptentive;
+import apptentive.com.android.feedback.ApptentiveActivityInfo;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ApptentiveActivityInfo {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ApptentiveKitUtils.registerApptentiveActivityContext(this);
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -95,7 +105,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
             logEvent("nav_send", MParticle.EventType.Navigation);
             if (MParticle.getInstance().isKitActive(MParticle.ServiceProviders.APPTENTIVE)) {
-                Apptentive.showMessageCenter(this);
+                Apptentive.showMessageCenter();
             }
         }
 
@@ -108,5 +118,11 @@ public class MainActivity extends AppCompatActivity
         MPEvent event = new MPEvent.Builder(name, eventType).build();
         MParticle.getInstance().logEvent(event);
 
+    }
+
+    @NonNull
+    @Override
+    public Activity getApptentiveActivityInfo() {
+        return this;
     }
 }
